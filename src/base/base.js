@@ -6,7 +6,7 @@ import 'firebase/storage'
 
 // Initialize Firebase
 const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyDfJ96jbepSKGlLSu1VS9tn3_9mpZ_F9Iw",
+    apiKey: "",
     authDomain: "monsyndicat-e9f90.firebaseapp.com",
     databaseURL: "https://monsyndicat-e9f90.firebaseio.com",
     projectId: "monsyndicat-e9f90",
