@@ -1,0 +1,16 @@
+.div-input-file {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+.text-input-file {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+.div-input-file-button-supprimer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}

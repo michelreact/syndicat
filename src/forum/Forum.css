@@ -1,0 +1,20 @@
+.forum-div-flex {
+    display: flex;
+    border-bottom: 1px solid red;
+}
+.forum-div-flex:hover {
+    background-color: yellow;
+}
+.forum-div-column-sujet {
+    flex: 6;
+}
+.forum-div-column-droite {
+    flex: 2;
+}
+.forum-date {
+    float: right;
+    color: red;
+}
+
+
+

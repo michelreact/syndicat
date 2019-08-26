@@ -1,0 +1,47 @@
+.header {
+    background-color: red;
+    margin: 0;
+    padding: 0;
+}
+.header-flex {
+    display: flex;
+}
+.header-logo {
+    flex: 1;
+}
+.logo-cgt {
+    height: 100px;
+    background-color: red
+}
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    background-color: red;
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    list-style: none;
+    margin-right: 25px;
+    color: white;
+    padding-bottom: 10px
+}
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px
+}
+.nav-link:hover {
+    color: yellow
+}
+.accueil-boutton-deconnexion {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+.accueil-boutton-deconnexion:hover {
+    color: yellow;
+}

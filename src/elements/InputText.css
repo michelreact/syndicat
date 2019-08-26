@@ -1,0 +1,13 @@
+.div-main-input-text {
+    display: flex;
+    justify-content: center;
+}
+::placeholder {
+    color: red;
+}
+.input-text {
+    width: 70%;
+    padding: 5px;
+}
+
+

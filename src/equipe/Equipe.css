@@ -1,0 +1,39 @@
+.equipe-div-main {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.equipe-div-flex {
+    display: flex;
+}
+.equipe-div-photo {
+    flex: 1;
+}
+.equipe-div-nom {
+    flex: 1;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.div-cadre-photo-equipe {
+    width:200px; /*container-width*/
+    height: 200px;
+    border-left: 1px solid red;
+    border-right: 1px solid red;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    float: right;
+    margin-top: 20px;
+}
+.equipe-div-main-liste-boutton {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.equipe-div-liste-boutton-modifier {
+    float: 1;
+    width: 200px;
+}
+.equipe-photo-equipier {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}

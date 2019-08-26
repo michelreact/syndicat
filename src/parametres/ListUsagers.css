@@ -1,0 +1,32 @@
+.list-usagers-div-flex {
+    cursor: pointer;
+    width: 100%;
+    border-bottom: 1px solid red;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+.list-usagers-div-nom {
+    flex: 1;
+}
+.list-usagers-div-nom:hover {
+    background-color: yellow;
+}
+.list-usagers-div-checkbox {
+    align-items: flex-end;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+}
+.list-usagers-div-items {
+    flex: 1;
+}
+.list-usagers-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
+    appearance: none;
+}
+.list-usagers-checkbox:checked {
+    background-color: red;
+}

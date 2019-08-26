@@ -1,0 +1,26 @@
+.forum-single-list-message-textarea {
+    white-space: pre-line;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+strong {
+    color: red;
+}
+span {
+    color: red;
+}
+.forum-single-list-div-message {
+    border-left: 1px solid yellow;
+    border-right: 1px solid yellow;
+    border-top: 1px solid yellow;
+    border-bottom: 1px solid yellow;
+}
+.forum-single-div-textarea {
+    display: flex;
+    justify-content: center;
+}
+textarea {
+    width: 70%;
+    height: 60px;
+    margin-top: 10px;
+}

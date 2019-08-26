@@ -1,0 +1,19 @@
+.div-button-jaune {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-jaune {
+    cursor: pointer;
+    background-color: yellow;
+    color: red;
+    border: none;
+    height: 30px;
+    width: 200PX;
+    text-decoration: none; 
+    font-weight: bold;
+    font-size: 20px;
+}
+.button-jaune:hover {
+    color: white
+}

@@ -1,0 +1,14 @@
+.tracts-div-flex {
+    display: flex;
+    border-bottom: 1px solid red;
+}
+.tracts-div-column-text {
+    flex: 6;
+}
+.tracts-boutton-telecharger {
+    margin-bottom: 15px;
+}
+.tracts-div-column-button {
+    flex: 1;
+    padding-top: 25px;
+}

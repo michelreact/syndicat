@@ -1,0 +1,24 @@
+.equipe-form-div-flex {
+    display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.equipe-form-div-column {
+    flex: 1;
+}
+.equipe-form-cadre {
+    height: 200px;
+    width: 200px;
+    border-left: 1px solid red;
+    border-right: 1px solid red;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.img-equipier {
+    object-fit: cover;
+    width:200px; 
+    height: 200px;
+}

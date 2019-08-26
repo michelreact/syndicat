@@ -1,0 +1,14 @@
+.infos-div-flex {
+    display: flex;
+    border-bottom: 1px solid red;
+}
+.infos-div-column-text {
+    flex: 6;
+}
+.infos-div-column-text:hover {
+    background-color: yellow;
+}
+.infos-div-column-button {
+    flex: 1;
+    padding-top: 15px;
+}

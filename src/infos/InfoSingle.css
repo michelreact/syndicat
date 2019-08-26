@@ -1,0 +1,12 @@
+.info-single-div-titre-info {
+    display: flex;
+    justify-content: center;
+}
+.info-single-titre {
+    font-weight: bold;
+}
+.info-single-textarea {
+    white-space: pre-line;
+    margin-left: 50px;
+    margin-right: 50px;
+}
