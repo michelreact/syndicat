@@ -11,6 +11,8 @@ import syndicat from '../syndicat/Syndicat'
 // redirect
 import {Redirect} from 'react-router-dom'
 import ButtonYellow from '../elements/ButtonYellow'
+// image profil sans photo
+import profil from '../images/profil.jpg'
 
 
 class Equipe extends Component {
@@ -71,10 +73,12 @@ class Equipe extends Component {
 
     // supprimer equipe
     bouttonSupprimer = (key, photo) => {
-        storage.ref(syndicat).child(photo).delete()
-        const equipes = {...this.state.equipes}
-        equipes[key] = null
-        this.setState({ equipes })
+        if (window.confirm('es-tu sur de vouloir supprimer cet élément ?')) {
+            storage.ref(syndicat).child(photo).delete()
+            const equipes = {...this.state.equipes}
+            equipes[key] = null
+            this.setState({ equipes })
+        }
     }
 
     // deconnecter les bases
@@ -132,9 +136,16 @@ class Equipe extends Component {
                     <div className='equipe-div-flex'>
                         <div className='equipe-div-photo'>
                             <div className='div-cadre-photo-equipe'>
+                                {equipes[key].url?
                                 <img className='equipe-photo-equipier' 
-                                     alt='equipier' 
-                                     src={{uri:equipes[key].url}} />
+                                    alt='equipier' 
+                                    src={equipes[key].url} />
+                                :
+                                <img className='equipe-photo-equipier' 
+                                    alt='equipier' 
+                                    src={profil} />
+                                }
+
                             </div>
                         </div>
                         <div className='equipe-div-nom'>

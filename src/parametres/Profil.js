@@ -41,6 +41,11 @@ class Profil extends Component {
         })
     }
 
+    // boutton retour
+    bouttonRetour = () => {
+        this.setState({ redirectionHome: true })
+    }
+
     // prenom
     recuperationInputPrenom = e => {
         this.setState({ prenom: e })
@@ -82,7 +87,7 @@ class Profil extends Component {
         const { id, usagers, redirectionHome } = this.state
         // redirection 
         if (redirectionHome) {
-            return <Redirect push to={`/`}/>
+            return <Redirect push to={`/parametres`}/>
         }
         // recuperation du profil
         let recuperationPrenom = null
@@ -114,6 +119,11 @@ class Profil extends Component {
         }
         return(
             <div className='div-main'>
+                <br/>
+                <ButtonRed
+                    textButton='retour'
+                    clickButton={this.bouttonRetour}
+                />
                 <p className='title'>Page profil</p>
                 <p className='text'>Prenom</p> 
                 {recuperationPrenom}

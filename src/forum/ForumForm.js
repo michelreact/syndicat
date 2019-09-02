@@ -47,6 +47,11 @@ class ForumForm extends Component {
             }
         }) 
     }  
+
+    // boutton retour
+    bouttonRetour = () => {
+        this.setState({ redirectionForum: true })
+    }
     
     // sujet
     recuperationInputSujet = e => {
@@ -100,6 +105,11 @@ class ForumForm extends Component {
         }
         return(
             <div className='div-main'>
+                <br/>
+                <ButtonRed
+                    textButton='retour'
+                    clickButton={this.bouttonRetour}
+                />
                 <p className='title'>Forum</p>
                 <p className='text'>Sujet</p>
                 <InputText

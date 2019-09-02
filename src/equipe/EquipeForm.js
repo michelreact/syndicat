@@ -46,6 +46,11 @@ class EquipeForm extends Component {
         this.setState({ montage: true, idEquipier, nomEquipier, fonctionEquipier, photoEquipier, url })
     }
 
+    // boutton retour
+    bouttonRetour = () => {
+        this.setState({ redirectionEquipes: true })
+    }
+
     // photo nom et url
     recuperationInputFile = e => {
         const photoEquipier = e
@@ -108,6 +113,10 @@ class EquipeForm extends Component {
         }
         return(
             <div className='div-main'>
+                <ButtonRed
+                    textButton='retour'
+                    clickButton={this.bouttonRetour}
+                />
                 <p className='title'>Equipe</p>
                 <div className='equipe-form-div-flex'>
                     <div className='equipe-form-div-column'>

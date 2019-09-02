@@ -37,6 +37,11 @@ class TractForm extends Component {
         this.setState({ tractTitre, tractFichier, tractId, montage:true })
     }
 
+    // boutton retour
+    bouttonRetour = () => {
+        this.setState({ redirectionTracts: true })
+    }
+
     // titre tract
     recuperationInputTitreTract = e => {
         this.setState({ tractTitre: e })
@@ -78,6 +83,11 @@ class TractForm extends Component {
         }
         return(
             <div className='div-main'>
+                <br/>
+                <ButtonRed
+                    textButton='retour'
+                    clickButton={this.bouttonRetour}
+                />
                 <p className='title'>Tracts</p>
                 <p className='text'>Titre du tract</p>
                 {montage?

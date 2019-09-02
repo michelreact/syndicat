@@ -71,9 +71,11 @@ class Infos extends Component {
 
     // supprimer info
     bouttonSupprimerInfo = id => {
-        const infos = {...this.state.infos}
-        infos[id] = null
-        this.setState({ infos })
+        if (window.confirm('es-tu sur de vouloir supprimer cet élément ?')) {
+            const infos = {...this.state.infos}
+            infos[id] = null
+            this.setState({ infos })
+        }
     }
 
     // deconnecter base usagers

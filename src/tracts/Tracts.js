@@ -73,10 +73,12 @@ class Tracts extends Component {
 
     // supprimer tract
     bouttonSupprimerTract = (id, fichier) => {
-        storage.ref(`${syndicat}${fichier}`).delete()
-        const tracts = {...this.state.tracts}
-        tracts[id] = null
-        this.setState({ tracts })
+        if (window.confirm('es-tu sur de vouloir supprimer cet élément ?')) {
+            storage.ref(`${syndicat}${fichier}`).delete()
+            const tracts = {...this.state.tracts}
+            tracts[id] = null
+            this.setState({ tracts })
+        }
     }
 
     // deconnecter base usagers

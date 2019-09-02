@@ -37,6 +37,11 @@ class InfoForm extends Component {
         this.setState({infoTitre, infoTextarea, infoId, montage:true })
     }
 
+    // boutton retour
+    bouttonRetour = () => {
+        this.setState({ redirectionInfos: true })
+    }
+
     // titre info
     recuperationInputTitreInfo = e => {
         this.setState({ infoTitre: e })
@@ -78,6 +83,11 @@ class InfoForm extends Component {
         }
         return (
             <div className='div-main'>
+                <br/>
+                <ButtonRed
+                    textButton='retour'
+                    clickButton={this.bouttonRetour}
+                />
                 <p className='title'>Infos pratiques</p>
                 <p className='text'>Titre</p>
                 {montage?
