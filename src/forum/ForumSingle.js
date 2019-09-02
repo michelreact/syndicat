@@ -21,6 +21,8 @@ class ForumSingle extends Component {
         textarea: '',
         // redirection
         redirectionForum: false,
+        // test
+        texttest: '',
     }
 
     componentDidMount () {
@@ -124,7 +126,6 @@ class ForumSingle extends Component {
                     textButton='retour'
                     clickButton={this.bouttonRetour}
                 /> 
-                <p className='title'>Forum</p>
                 <div className='forum-single-div-textarea'>
                     <textarea
                         type='text'
@@ -132,7 +133,7 @@ class ForumSingle extends Component {
                         maxLength={5000}
                         onChange={this.onChange}
                         value={textarea}
-                    />            
+                    />           
                 </div>
                 <br/>
                 <ButtonRed

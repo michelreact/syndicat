@@ -110,7 +110,6 @@ class ForumForm extends Component {
                     textButton='retour'
                     clickButton={this.bouttonRetour}
                 />
-                <p className='title'>Forum</p>
                 <p className='text'>Sujet</p>
                 <InputText
                     recuperationInputText={this.recuperationInputSujet}
