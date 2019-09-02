@@ -97,6 +97,7 @@ class EquipeForm extends Component {
         base.removeBinding(this.ref)
     }
 
+
     render() {
         const { url, redirectionEquipes, montage, nomEquipier, fonctionEquipier,
                 photoEquipier } = this.state
@@ -113,6 +114,7 @@ class EquipeForm extends Component {
         }
         return(
             <div className='div-main'>
+                <br/>
                 <ButtonRed
                     textButton='retour'
                     clickButton={this.bouttonRetour}

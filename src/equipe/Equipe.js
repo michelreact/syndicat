@@ -31,6 +31,8 @@ class Equipe extends Component {
         // redirection
         redirectionEquipeForm: false,
         redirectionHome: false,
+        // test url
+        urltest: '',
     }
 
     componentDidMount () {
@@ -85,6 +87,13 @@ class Equipe extends Component {
     componentWillUnmount () {
         base.removeBinding(this.ref, this.ref2)
     }
+
+    // boutton test
+    bouttonTest = (photo) => {
+        storage.ref(syndicat).child(photo).getDownloadURL().then(url => {
+            this.setState({ urltest: url })
+        })
+    }
     
 
     render () {
@@ -132,6 +141,7 @@ class Equipe extends Component {
             .keys(equipes)
             .reverse()
             .map(key =>
+                
                 <div key={key} className='equipe-div-liste-main'>
                     <div className='equipe-div-flex'>
                         <div className='equipe-div-photo'>
@@ -145,7 +155,6 @@ class Equipe extends Component {
                                     alt='equipier' 
                                     src={profil} />
                                 }
-
                             </div>
                         </div>
                         <div className='equipe-div-nom'>
@@ -188,8 +197,8 @@ class Equipe extends Component {
                     textButton='Ajouter equipier'
                     clickButton={this.bouttonAjouterEquipier}
                 />
-                : null}
-                {list}
+                : null}>
+                    {list}
                 <br/>
             </div>
         )
@@ -197,3 +206,4 @@ class Equipe extends Component {
 }
 
 export default Equipe
+

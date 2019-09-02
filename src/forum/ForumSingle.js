@@ -48,6 +48,11 @@ class ForumSingle extends Component {
         this.setState({ forumId })
     }
 
+    // boutton retour
+    bouttonRetour = () => {
+        this.setState({ redirectionForum: true })
+    }
+
     // textarea
     onChange = e => {
         const textarea = e.target.value
@@ -113,7 +118,12 @@ class ForumSingle extends Component {
                     )}
                 </div>)
         return(
-            <div className='div-main'>    
+            <div className='div-main'>   
+                <br/>
+                <ButtonRed
+                    textButton='retour'
+                    clickButton={this.bouttonRetour}
+                /> 
                 <p className='title'>Forum</p>
                 <div className='forum-single-div-textarea'>
                     <textarea

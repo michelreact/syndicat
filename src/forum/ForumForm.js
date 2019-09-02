@@ -76,8 +76,8 @@ class ForumForm extends Component {
                    d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear()  
             forums[Date.now()] = {
                 sujet: forumSujet,
-                message: [
-                    {messages: forumMessage, auteur: prenom+' '+nom, date: date},
+                messages: [
+                    {message: forumMessage, auteur: prenom+' '+nom, date: date},
                 ],
                 auteur: prenom+' '+nom,
                 date: date
