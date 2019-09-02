@@ -133,6 +133,19 @@ class PageAuth extends Component {
         }
     }
 
+    // mot de passe oublié
+    bouttonPasswordForget = () => {
+        firebase.auth().sendPasswordResetEmail(this.state.seConnecterEmail)
+            .then(
+                () => {
+                    alert('vas sur ta messagerie pour ton nouveau mot de passe')
+                },
+                (error) => {
+                    alert('renseigne ton email')
+                }
+            );
+    }
+
     // deconnexion base usages
     componentWillUnmount () {
         base.removeBinding(this.ref)
@@ -163,6 +176,12 @@ class PageAuth extends Component {
                         <ButtonRed
                             textButton={'Se connecter'}
                             clickButton={this.bouttonSeConnecter}
+                        />
+                        {/* MOT DE PASSE OUBLIER */}
+                        <br/>
+                        <ButtonRed
+                            textButton={'mot de passe oublié'}
+                            clickButton={this.bouttonPasswordForget}
                         />
                     </div>
                     <div className='page-auth-div-column'>

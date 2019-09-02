@@ -134,7 +134,7 @@ class Equipe extends Component {
                             <div className='div-cadre-photo-equipe'>
                                 <img className='equipe-photo-equipier' 
                                      alt='equipier' 
-                                     src={equipes[key].url} />
+                                     src={{uri:equipes[key].url}} />
                             </div>
                         </div>
                         <div className='equipe-div-nom'>
