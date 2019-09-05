@@ -23,6 +23,7 @@ import ForumSingle from '../forum/ForumSingle'
 import ListeUsagers from '../parametres/ListeUsagers'
 import ProfilUsager from '../parametres/ProfilUsager'
 import Notification from '../parametres/Notification'
+import Apropos from '../apropos/Apropos'
 
 
 class Accueil extends Component {
@@ -65,7 +66,7 @@ class Accueil extends Component {
             { /* mise en place du menu */ }              
             <nav>
                 <ul>
-                    <li><Link to={'/'} className="nav-link">Home</Link></li>
+                    <li><Link to={'/'} className="nav-link">Accueil</Link></li>
                     <li><Link to={'/tracts'} className="nav-link">Tracts</Link></li>
                     <li><Link to={'/infos'} className="nav-link">Infos</Link></li>
                     <li><Link to={'/forum'} className="nav-link">Forum</Link></li>
@@ -78,6 +79,7 @@ class Accueil extends Component {
                     :
                     <li><Link to={'/pageAuth'} className="nav-link">Connexion</Link></li>
                     }
+                    <li><Link to={'/apropos'} className="nav-link">A propos</Link></li>
                 </ul>
             </nav>
             { /* mise en place des routes */ }
@@ -99,6 +101,7 @@ class Accueil extends Component {
                 <Route exact path='/listeUsagers' component={ListeUsagers} />
                 <Route exact path='/profilUsager' component={ProfilUsager} />
                 <Route exact path='/notification' component={Notification} />
+                <Route exact path='/apropos' component={Apropos} />
                 <Route component={NotFound} />             
               </Switch>
             </div>

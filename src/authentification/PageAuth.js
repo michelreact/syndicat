@@ -58,7 +58,7 @@ class PageAuth extends Component {
                     },
                     (error) => {
                       reject(error);
-                      alert('connexion impossible')
+                      alert('connexion impossible, mail ou mot de passe incorrect')
                     }
                   );
                 }
@@ -123,7 +123,7 @@ class PageAuth extends Component {
                     },
                     (error) => {
                       reject(error);
-                      alert('impossible de se connecter')
+                      alert('il y a une erreure')
                     }
                   );
                 }
@@ -178,11 +178,9 @@ class PageAuth extends Component {
                             clickButton={this.bouttonSeConnecter}
                         />
                         {/* MOT DE PASSE OUBLIER */}
-                        <br/>
-                        <ButtonRed
-                            textButton={'mot de passe oublié'}
-                            clickButton={this.bouttonPasswordForget}
-                        />
+                        <p 
+                            onClick={this.bouttonPasswordForget}
+                            className='titleclic'>mot de passe oublié</p>
                     </div>
                     <div className='page-auth-div-column'>
                         <div></div>

@@ -103,6 +103,8 @@ class ForumForm extends Component {
         if (redirectionForum) {
             return <Redirect push to={`/forum`} />           
         }
+
+
         return(
             <div className='div-main'>
                 <br/>

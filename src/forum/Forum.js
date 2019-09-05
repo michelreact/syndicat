@@ -51,6 +51,16 @@ class Forum extends Component {
         this.setState({ redirectionForumForm:true })
     }
 
+    // supprimer un sujet
+    bouttonSupprimerSujet = (key) => {
+        if (window.confirm('es-tu sur de vouloir supprimer cet élément ?')) {
+                // supprimer le sujet database
+                const forums = { ...this.state.forums }
+                forums[key] = null
+                this.setState({ forums })
+        }
+    }
+
     // click liste sujet
     clickListeMessage = (id) => {
         this.setState({ forumId: id, redirectionForumSingle:true })
@@ -96,13 +106,20 @@ class Forum extends Component {
             return <p className='title'>Vous devez être elu pour consulter cette page.</p>
         }
 
+        // si admin
+        let admin = false
+        let recupadmin = Object.keys(usagers).filter(key => key === idUsager).map(key => usagers[key].admin)
+        if (String(recupadmin) === 'true') {
+            admin = true
+        }
+
         // en cours de chargement
         if (forums){}else{return <p className='title'>En cours de chargement</p>}
 
         // liste forum
         const liste = Object.keys(forums).reverse().map(key =>
+        <div key={key} className='forum-div-list-sujet'>
             <div 
-                key={key} 
                 onClick={() => this.clickListeMessage(key)}
                 className='forum-div-flex'>
                 <div className='forum-div-column-sujet'>
@@ -115,6 +132,12 @@ class Forum extends Component {
                     <p className='forum-date'>{forums[key].date}</p>
                 </div>
             </div>
+            {admin?
+                <h3 
+                    className='forum-text-supprimer-sujet'
+                    onClick={() => this.bouttonSupprimerSujet(key)}>supprimer le sujet</h3>
+            :null}
+        </div>
             )
         return(
             <div className='div-main'>

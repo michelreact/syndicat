@@ -4,4 +4,11 @@
 .page-auth-div-column {
     flex: 1;
 }
+.titleclic {
+    cursor: pointer;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
 

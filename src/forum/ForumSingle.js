@@ -12,7 +12,6 @@ import ButtonRed from '../elements/ButtonRed'
 
 class ForumSingle extends Component {
     state = {
-        // usages
         usagers: '',
         idUsager: '',
         // forum
@@ -55,6 +54,16 @@ class ForumSingle extends Component {
         this.setState({ redirectionForum: true })
     }
 
+    // boutton supprimer message
+    bouttonSupprimerMessage = (key, i) => {
+        if (window.confirm('es-tu sur de vouloir supprimer cet élément ?')) {
+            // supprimer le sujet database
+            const forums = { ...this.state.forums }
+            forums[key].messages[i] = null
+            this.setState({ forums })
+        }
+    }
+
     // textarea
     onChange = e => {
         const textarea = e.target.value
@@ -89,7 +98,7 @@ class ForumSingle extends Component {
     }
 
     render() {
-        const { redirectionForum, forumId, forums, textarea } = this.state
+        const { redirectionForum, forumId, forums, textarea, usagers, idUsager } = this.state
 
         // redirection forum
         if (redirectionForum) {
@@ -98,6 +107,15 @@ class ForumSingle extends Component {
 
         // en cours de chargement
         if (forums) {}else {return <p className='title'>En cours de chargement</p>}
+
+        
+        // si admin
+        let admin = false
+        let recupadmin = Object.keys(usagers).filter(key => key === idUsager).map(key => usagers[key].admin)
+        if (String(recupadmin) === 'true') {
+            admin = true
+        }
+
 
         // liste des messages
         const list = Object
@@ -108,17 +126,23 @@ class ForumSingle extends Component {
                     <p className='title'>{forums[key].sujet}</p>
                 {forums[key].messages
                     .reverse()
-                    .map(ite =>
-                        <div className='forum-single-list-div-message' key={ite.message}>
+                    .map((ite, index) =>
+                        <div className='forum-single-list-div-message' key={index}>
                             <p>
                                 <strong>Auteur : </strong>
                                 {ite.auteur + ' - '}
                                 <span>{ite.date}</span>
                             </p>
                             <p>{ite.message}</p>
+                            {admin || ite.auteur === forums[key].auteur?
+                                <h3 
+                                    className='forum-text-supprimer-sujet'
+                                    onClick={() => this.bouttonSupprimerMessage(key, index)}>supprimer le message</h3>
+                            :null}
                         </div>
                     )}
                 </div>)
+
         return(
             <div className='div-main'>   
                 <br/>
@@ -140,7 +164,9 @@ class ForumSingle extends Component {
                     textButton='Repondre'  
                     clickButton={this.bouttonRepondre}                  
                 />
-                {list}
+                <div>
+                    {list}
+                </div>
             </div>
         )
     }

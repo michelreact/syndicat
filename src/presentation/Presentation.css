@@ -1,0 +1,13 @@
+.img-presentation {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+.text-accueil {
+    text-align: center;
+}
+.text-cgt-accueil {
+    text-align: center;
+    color: red;
+}
