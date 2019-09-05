@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import './ForumSingle.css'
 // firebase
 import firebase from 'firebase/app'
@@ -24,6 +24,8 @@ class ForumSingle extends Component {
         texttest: '',
     }
 
+    messagesRef = createRef()
+
     componentDidMount () {
         // connecter base usagers
         this.ref = base.syncState(syndicat+'/usagers',{
@@ -47,6 +49,11 @@ class ForumSingle extends Component {
         // props forum
         const forumId = this.props.location.state.id
         this.setState({ forumId })
+    }
+
+    componentDidUpdate () {
+        const ref = this.messagesRef.current
+        ref.scrollTop = ref.scrollHeight
     }
 
     // boutton retour
@@ -125,9 +132,8 @@ class ForumSingle extends Component {
                 <div className='forum-single-list-div-main' key={key}>
                     <p className='title'>{forums[key].sujet}</p>
                 {forums[key].messages
-                    .reverse()
                     .map((ite, index) =>
-                        <div className='forum-single-list-div-message' key={index}>
+                        <div className='forum-single-list-div-message' key={index} ref1={this.messagesRef}>
                             <p>
                                 <strong>Auteur : </strong>
                                 {ite.auteur + ' - '}
