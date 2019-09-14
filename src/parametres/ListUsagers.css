@@ -26,6 +26,7 @@
     height: 20px;
     border: 1px solid red;
     appearance: none;
+    margin-bottom: -2px;
 }
 .list-usagers-checkbox:checked {
     background-color: red;

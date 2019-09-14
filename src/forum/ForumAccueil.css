@@ -1,0 +1,7 @@
+.forum-accueil-div-flex {
+    display: flex;
+    flex-direction: row;
+}
+.forum-accueil-div-flex-forum {
+    flex: 1;
+}

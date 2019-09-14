@@ -162,6 +162,11 @@ class ListeUsagers extends Component {
                 <div className='list-usagers-div-nom' onClick={() => this.selectionUsager(newState[key].id)}>
                     <p>{newState[key].nom} {usagers[newState[key].id].prenom}</p>
                 </div>
+                {usagers[newState[key].id].officiel? 
+                <div className='list-usagers-div-checkbox'>
+                    <p>compte administrateur</p>
+                </div>
+                :
                 <div className='list-usagers-div-checkbox'>
                     <div className='list-usagers-div-items'>
                     adh
@@ -224,7 +229,7 @@ class ListeUsagers extends Component {
                     }
                     </div>
                 </div>
-
+                }
             </div>
             )
 

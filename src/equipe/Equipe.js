@@ -105,7 +105,7 @@ class Equipe extends Component {
         let adherent = null
         // redirection
         if (redirectionHome) {
-            return <Redirect push to={`/`} />
+            return <p className='title'>Tu n'es pas connecté</p>
         }
         // recuperation data usagers
         if (usagers) {
@@ -120,7 +120,7 @@ class Equipe extends Component {
         }
         // adherent
         if (String(adherent) === 'false') {
-            return <p className='title'>Vous devez être adherent pour consulter cette page.</p>
+            return <p className='title'>Tu dois être adherent pour consulter cette page.</p>
         }
         // redirection
         if (redirectionEquipeForm) {

@@ -19,6 +19,7 @@ class Forum extends Component {
         forums: '',
         // redirection
         redirectionHome: false,
+        redirectionForum: false,
         redirectionForumForm: false,
         redirectionForumSingle: false,
     }
@@ -46,9 +47,13 @@ class Forum extends Component {
         })  
     }
 
+    bouttonRetour = () => {
+        this.setState({ redirectionForum: true })
+    }
+
     // ajouter un sujet
     bouttonAjouterSujet = () => {
-        this.setState({ redirectionForumForm:true })
+        this.setState({ redirectionForumForm: true })
     }
 
     // supprimer un sujet
@@ -63,7 +68,7 @@ class Forum extends Component {
 
     // click liste sujet
     clickListeMessage = (id) => {
-        this.setState({ forumId: id, redirectionForumSingle:true })
+        this.setState({ forumId: id, redirectionForumSingle: true })
     }
 
     // deconnecter base usagers
@@ -72,12 +77,17 @@ class Forum extends Component {
     }
 
     render() {
-        const { redirectionHome, redirectionForumForm, idUsager, usagers, redirectionForumSingle,
+        const { redirectionHome, redirectionForumForm, idUsager, usagers, redirectionForumSingle, redirectionForum,
                 forums, forumId } = this.state
         
         // redirection home
         if (redirectionHome) {
-            return <Redirect push to={`/`} />
+            return <p className='title'>Tu n'es pas connecté</p>
+        }
+
+        // redirection forum
+        if (redirectionForum) {
+            return <Redirect push to={`/forum`} />
         }
 
         // redirection forum form
@@ -94,16 +104,17 @@ class Forum extends Component {
                 }
             }} />
         }
+
         // si adherent
         let adherent = Object.keys(usagers).filter(key => key === idUsager).map(key => usagers[key].adherent)
         if (String(adherent) === 'false') {
-            return <p className='title'>Vous devez être adherent pour consulter cette page.</p>
+            return <p className='title'>Tu dois être adherent pour consulter cette page.</p>
         }
 
         // si elu
         let elu = Object.keys(usagers).filter(key => key === idUsager).map(key => usagers[key].elu)
         if (String(elu) === 'false') {
-            return <p className='title'>Vous devez être elu pour consulter cette page.</p>
+            return <p className='title'>Tu dois être elu pour consulter cette page.</p>
         }
 
         // si admin
@@ -139,9 +150,15 @@ class Forum extends Component {
             :null}
         </div>
             )
+
         return(
             <div className='div-main'>
-                <p className='title'>Forum</p>
+                <br/>
+                <ButtonRed
+                    textButton='retour'
+                    clickButton={this.bouttonRetour}
+                />
+                <p className='title'>Forum elus</p>
                 <ButtonRed
                     textButton='Ajouter un sujet'
                     clickButton={this.bouttonAjouterSujet}

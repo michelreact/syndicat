@@ -88,7 +88,7 @@ class Infos extends Component {
             infos, infoTitre, infoTextarea, infoId, redirectionInfoForm } = this.state
         // redirection
         if (redirectionHome) {
-            return <Redirect push to={`/`} />
+            return <p className='title'>Tu n'es pas connecté</p>
         }
         // redirection info form
         if (redirectionInfoForm) {
@@ -114,7 +114,7 @@ class Infos extends Component {
         // si adherent
         let adherent = Object.keys(usagers).filter(key => key === usagerId).map(key => usagers[key].adherent)
         if (String(adherent) === 'false') {
-            return <p className='title'>Vous devez être adherent pour consulter cette page.</p>
+            return <p className='title'>Tu dois être adherent pour consulter cette page.</p>
         }
         // si admin
         let admin = false

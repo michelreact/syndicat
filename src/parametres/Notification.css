@@ -1,0 +1,30 @@
+.notification-div-body {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.notification-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
+    appearance: none;
+}
+.notification-checkbox:checked {
+    background-color: red;
+}
+.span-notification {
+    font-size: 15px;
+    color: black;
+    font-weight: normal;
+}
+.span-notification-modifier {
+    cursor: pointer;
+}
+.span-div-checkbox-flex {
+    display: flex;
+    justify-content: center;
+}
+.notification-div-input-text {
+    
+}
+
+

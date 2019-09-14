@@ -53,7 +53,7 @@ class Tracts extends Component {
 
     // ajouter un tract
     bouttonAjouterTract = () => {
-        this.setState({ redirectionTractForm:true })
+        this.setState({ redirectionTractForm: true })
     }
 
     // telechager fichier
@@ -88,12 +88,13 @@ class Tracts extends Component {
     
 
     render() {
-        const { redirectionHome, redirectionTractForm, usagers, id, tracts,
+        const { redirectionHome, redirectionTractForm, usagers, id, tracts, pasConnecter,
                 tractTitre, tractFichier, tractId } = this.state
         // redirection
         if (redirectionHome) {
-            return <Redirect push to={`/`} />
+            return <p className='title'>Tu n'es pas connecté</p>
         }
+
         if (redirectionTractForm) {
             return <Redirect push to={{
                 pathname:`/tracts/tractForm`, 
@@ -103,7 +104,7 @@ class Tracts extends Component {
         // si adherent
         let adherent = Object.keys(usagers).filter(key => key === id).map(key => usagers[key].adherent)
         if (String(adherent) === 'false') {
-            return <p className='title'>Vous devez être adherent pour consulter cette page.</p>
+            return <p className='title'>Tu dois être adherent pour consulter cette page.</p>
         }
         // si admin
         let admin = false

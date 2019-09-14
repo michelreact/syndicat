@@ -24,6 +24,10 @@ import ListeUsagers from '../parametres/ListeUsagers'
 import ProfilUsager from '../parametres/ProfilUsager'
 import Notification from '../parametres/Notification'
 import Apropos from '../apropos/Apropos'
+import Contact from '../contact/Contact'
+import ForumAccueil from '../forum/ForumAccueil'
+import ForumAdherent from '../forum/ForumAdherent'
+import ForumSujet from '../forum/ForumSujet'
 
 
 class Accueil extends Component {
@@ -69,6 +73,7 @@ class Accueil extends Component {
                     <li><Link to={'/'} className="nav-link">Accueil</Link></li>
                     <li><Link to={'/tracts'} className="nav-link">Tracts</Link></li>
                     <li><Link to={'/infos'} className="nav-link">Infos</Link></li>
+                    <li><Link to={'/contact'} className="nav-link">Contact</Link></li>
                     <li><Link to={'/forum'} className="nav-link">Forum</Link></li>
                     <li><Link to={'/equipe'} className="nav-link">Equipe</Link></li>
                     <li><Link to={'/parametres'} className="nav-link">Param</Link></li>
@@ -95,7 +100,11 @@ class Accueil extends Component {
                 <Route exact path='/infos/infoSingle' component={InfoSingle} />
                 <Route exact path='/equipe' component={Equipe} />
                 <Route exact path='/equipe/equipeForm' component={EquipeForm} />
-                <Route exact path='/forum' component={Forum} />
+                <Route exact path='/contact' component={Contact} />
+                <Route exact path='/forum' component={ForumAccueil} />
+                <Route exact path='/forum/adherent' component={ForumAdherent} />
+                <Route exact path='/forum/sujet' component={ForumSujet} />
+                <Route exact path='/forum/elu' component={Forum} />
                 <Route exact path='/forum/form' component={ForumForm} />
                 <Route exact path='/forum/single' component={ForumSingle} />
                 <Route exact path='/listeUsagers' component={ListeUsagers} />

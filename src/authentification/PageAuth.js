@@ -51,7 +51,7 @@ class PageAuth extends Component {
         if (seConnecterEmail && seConnecterMotDePasse) {
             return new Promise(
                 (resolve, reject) => {
-                  firebase.auth().signInWithEmailAndPassword(seConnecterEmail, seConnecterMotDePasse).then(
+                  firebase.auth().signInWithEmailAndPassword(seConnecterEmail.trim(), seConnecterMotDePasse).then(
                     () => {
                       resolve();
                       this.setState({ redirectionHome:true })
@@ -100,7 +100,7 @@ class PageAuth extends Component {
             return new Promise(
                 (resolve, reject) => {
                 // creation et sauvegarde du compte usager
-                  firebase.auth().createUserWithEmailAndPassword(creerCompteEmail, creerCompteMotDePasse)
+                  firebase.auth().createUserWithEmailAndPassword(creerCompteEmail.trim(), creerCompteMotDePasse)
                     .then(() => {
                         firebase.auth().onAuthStateChanged((user) => {
                             if (user) {

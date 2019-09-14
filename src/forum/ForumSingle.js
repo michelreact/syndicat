@@ -24,6 +24,7 @@ class ForumSingle extends Component {
         texttest: '',
     }
 
+    // create ref
     messagesRef = createRef()
 
     componentDidMount () {
@@ -53,7 +54,7 @@ class ForumSingle extends Component {
 
     componentDidUpdate () {
         const ref = this.messagesRef.current
-        ref.scrollTop = ref.scrollHeight
+        // ref.scrollTop = ref.scrollHeight
     }
 
     // boutton retour
@@ -84,16 +85,27 @@ class ForumSingle extends Component {
         const { forumId, textarea, idUsager } = this.state
         let prenom = Object.keys(usagers).filter(key => key === idUsager).map(key => usagers[key].prenom)
         let nom = Object.keys(usagers).filter(key => key === idUsager).map(key => usagers[key].nom)
+        let forumSujet = Object.keys(usagers).filter(key => key === idUsager).map(key => usagers[key].sujet)
         const d = new Date()
         let date = d.getHours()+":"+d.getMinutes()+" "+
                          d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear()
+
         if (textarea) {
-            forums[forumId].messages.push({
-                auteur: prenom+' '+nom,
-                date: date,
-                message: textarea
-            })
-            this.setState({ forums, textarea:'' })
+            if (forums[forumId].messages) {
+                forums[forumId].messages.push({
+                    auteur: prenom+' '+nom,
+                    date: date,
+                    message: textarea
+                })
+                this.setState({ forums, textarea:'' })
+            } else {
+                forums[forumId] = {
+                    messages: [
+                        {message: textarea, auteur: prenom+' '+nom, date: date},
+                    ]
+                }
+                this.setState({ forums, textarea: '' })
+            }
         } else {
             alert('le message est vide')
         }
@@ -131,22 +143,27 @@ class ForumSingle extends Component {
             .map(key =>
                 <div className='forum-single-list-div-main' key={key}>
                     <p className='title'>{forums[key].sujet}</p>
-                {forums[key].messages
+                    {forums[key].messages?
+                    forums[key].messages
                     .map((ite, index) =>
-                        <div className='forum-single-list-div-message' key={index} ref1={this.messagesRef}>
-                            <p>
-                                <strong>Auteur : </strong>
-                                {ite.auteur + ' - '}
-                                <span>{ite.date}</span>
-                            </p>
+                        <div className='forum-single-list-div-message' key={index} >
+                            <div className='forum-single-div-flex'>
+                                <div className='forum-single-div-text-droite'>
+                                    {ite.auteur + ' - '}
+                                    <span>{ite.date}</span>
+                                </div>
+                                <div className='forum-single-div-text-gauche'>
+                                    {admin || ite.auteur === forums[key].auteur?
+                                    <span
+                                        className='forum-text-supprimer-sujet'
+                                        onClick={() => this.bouttonSupprimerMessage(key, index)}>supprimer le message</span>
+                                    :null}
+                                </div>
+                            </div>
                             <p>{ite.message}</p>
-                            {admin || ite.auteur === forums[key].auteur?
-                                <h3 
-                                    className='forum-text-supprimer-sujet'
-                                    onClick={() => this.bouttonSupprimerMessage(key, index)}>supprimer le message</h3>
-                            :null}
                         </div>
-                    )}
+                    )
+                    :null}
                 </div>)
 
         return(
@@ -156,6 +173,11 @@ class ForumSingle extends Component {
                     textButton='retour'
                     clickButton={this.bouttonRetour}
                 /> 
+                <div className='messages' ref={this.messagesRef}>
+                    <div className='message'>
+                        {list}
+                    </div>
+                </div>
                 <div className='forum-single-div-textarea'>
                     <textarea
                         type='text'
@@ -170,9 +192,8 @@ class ForumSingle extends Component {
                     textButton='Repondre'  
                     clickButton={this.bouttonRepondre}                  
                 />
-                <div>
-                    {list}
-                </div>
+                <br/>
+                <br/>
             </div>
         )
     }

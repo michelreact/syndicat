@@ -17,7 +17,6 @@ class Parametres extends Component {
         redirectionHome: false,
         redirectionProfil: false,
         redirectionListeUsagers: false,
-        redirectionNotification: false,
     }
 
     componentDidMount () {
@@ -47,11 +46,6 @@ class Parametres extends Component {
         this.setState({ redirectionListeUsagers:true })
     }
 
-    // notification
-    clickNotification = () => {
-        this.setState({ redirectionNotification: true })
-    }
-
     // deconnecter base usagers
     componentWillUnmount () {
         base.removeBinding(this.ref)
@@ -63,7 +57,6 @@ class Parametres extends Component {
             redirectionHome, 
             redirectionProfil, 
             redirectionListeUsagers,
-            redirectionNotification,
             // usagers
             usagers, 
             usagerId 
@@ -71,7 +64,7 @@ class Parametres extends Component {
 
         // redirection home
         if (redirectionHome) {
-            return <Redirect push to={`/`} />
+            return <p className='title'>Tu n'es pas connecté</p>
         }
 
         // redirection profil
@@ -82,11 +75,6 @@ class Parametres extends Component {
         // redirection liste usagers
         if (redirectionListeUsagers) {
             return <Redirect push to={`/listeUsagers`} />
-        }
-
-        // redirection liste usagers
-        if (redirectionNotification) {
-            return <Redirect push to={`/notification`} />
         }
 
         // en cours de chargement
@@ -106,18 +94,12 @@ class Parametres extends Component {
                 <p className='title'>Paramètres</p>
                 <div className='parametres-div-text'
                      onClick={this.clickProfilUtilisateur}>
-                    <p>Profil utilisateur</p>
+                    <p>Mon profil</p>
                 </div>
                 {admin?
                 <div className='parametres-div-text'
                      onClick={this.clickListeUsagers}>
-                    <p>ListeUsagers</p>
-                </div>
-                :null}
-                {admin?
-                <div className='parametres-div-text'
-                     onClick={this.clickNotification}>
-                    <p>Notification</p>
+                    <p>Liste des usagers</p>
                 </div>
                 :null}
             </div>
@@ -126,3 +108,4 @@ class Parametres extends Component {
 }
 
 export default Parametres
+
